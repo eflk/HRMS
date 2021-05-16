@@ -8,17 +8,17 @@ public abstract class ResultBase implements Result {
 	private boolean success;
 	
 	public ResultBase(boolean success) {
-		this(success, 0, "");
+		this.success = success;
 	}
 	
 	public ResultBase(boolean success, String message) {
-		this(success, 0, message);
+		this(success);
+		this.message = message;
 	}
 	
 	public ResultBase(boolean success, int code, String message) {
+		this(success, message);
 		this.code = code;
-		this.message = message;
-		this.success = success;
 	}
 
 	@Override

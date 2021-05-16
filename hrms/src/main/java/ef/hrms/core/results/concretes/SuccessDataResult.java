@@ -2,6 +2,10 @@ package ef.hrms.core.results.concretes;
 
 public class SuccessDataResult<T> extends DataResultBase<T> {
 
+	public SuccessDataResult() {
+		super(true);
+	}
+
 	public SuccessDataResult(T data) {
 		super(true, data);
 	}

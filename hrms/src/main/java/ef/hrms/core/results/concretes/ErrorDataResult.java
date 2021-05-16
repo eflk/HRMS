@@ -2,6 +2,10 @@ package ef.hrms.core.results.concretes;
 
 public class ErrorDataResult<T> extends DataResultBase<T> {
 
+	public ErrorDataResult() {
+		super(false);
+	}
+
 	public ErrorDataResult(T data) {
 		super(false, data);
 	}
