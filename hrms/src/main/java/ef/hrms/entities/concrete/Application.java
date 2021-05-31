@@ -18,7 +18,7 @@ public class Application implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="create_date")
@@ -39,11 +39,11 @@ public class Application implements Serializable {
 	public Application() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -1,8 +1,9 @@
-package ef.hrms.core.base;
+package ef.hrms.core.utilities;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.security.SecureRandom;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.ZoneOffset;
@@ -108,6 +109,18 @@ public final class Helper {
 	}
 
 	public static boolean checkSaltedPassword(String clearTypePasswd, String hashedPasswd, String salt) throws Exception {
-		return new SaltedPassword().checkPassword(clearTypePasswd, hashedPasswd, salt);
+		return SaltedPassword.checkPassword(clearTypePasswd, hashedPasswd, salt);
+	}
+	
+	public static String generateRandomPassword(int len)
+	{
+		int randNumOrigin = 48, randNumBound = 122;
+		SecureRandom random = new SecureRandom();
+		return random.ints(randNumOrigin, randNumBound + 1)
+				.filter(i -> Character.isAlphabetic(i) || Character.isDigit(i))
+				.limit(len)
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint,
+						StringBuilder::append)
+				.toString();
 	}
 }

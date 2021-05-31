@@ -17,7 +17,7 @@ public class Job implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	private String code;
 
@@ -57,11 +57,11 @@ public class Job implements Serializable {
 	public Job() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

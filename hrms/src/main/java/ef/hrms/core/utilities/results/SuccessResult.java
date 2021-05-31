@@ -1,6 +1,6 @@
-package ef.hrms.core.results.concretes;
+package ef.hrms.core.utilities.results;
 
-public class SuccessResult extends ResultBase {
+public class SuccessResult extends Result {
 
 	public SuccessResult() {
 		super(true);

@@ -17,7 +17,7 @@ public class Country implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	private String code;
 
@@ -26,7 +26,7 @@ public class Country implements Serializable {
 	private String name;
 
 	@Column(name="numeric_code")
-	private Integer numericCode;
+	private int numericCode;
 
 	//bi-directional many-to-one association to JobLocation
 	@OneToMany(mappedBy="country")
@@ -35,11 +35,11 @@ public class Country implements Serializable {
 	public Country() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -67,11 +67,11 @@ public class Country implements Serializable {
 		this.name = name;
 	}
 
-	public Integer getNumericCode() {
+	public int getNumericCode() {
 		return this.numericCode;
 	}
 
-	public void setNumericCode(Integer numericCode) {
+	public void setNumericCode(int numericCode) {
 		this.numericCode = numericCode;
 	}
 

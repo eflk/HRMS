@@ -17,7 +17,7 @@ public class Recuiter implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	//bi-directional many-to-one association to Job
 	@OneToMany(mappedBy="recuiter")
@@ -34,11 +34,11 @@ public class Recuiter implements Serializable {
 	public Recuiter() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

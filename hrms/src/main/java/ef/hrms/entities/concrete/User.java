@@ -6,10 +6,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
@@ -19,32 +26,35 @@ public class User {
 	private int id;
 
 	@Column(name = "username")
+	@NotNull
+	@NotBlank
+	@Email
 	private String username;
 
 	@Column(name = "password_hash")
+	@NotNull
+	@NotBlank
 	private String passwordHash;
 
 	@Column(name = "password_salt")
+	@NotNull
+	@NotBlank
 	private String passwordSalt;
 
 	@Column(name = "country_id")
+	@NotNull
+	@NotBlank
 	private int countryId;
 
 	@Column(name = "language_id")
+	@NotNull
+	@NotBlank
 	private int languageId;
 
-	public User() {
+	@Column(name = "status")
+	@NotNull
+	@NotBlank
+	private int status;
 
-	}
-
-	public User(int id, String username, String passwordHash, String passwordSalt, int countryId,
-			int languageId) {
-		this.id = id;
-		this.username = username;
-		this.passwordHash = passwordHash;
-		this.passwordSalt = passwordSalt;
-		this.countryId = countryId;
-		this.languageId = languageId;
-	}
 
 }

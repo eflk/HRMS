@@ -18,7 +18,7 @@ public class Document implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	@Temporal(TemporalType.DATE)
 	private Date date;
@@ -38,11 +38,11 @@ public class Document implements Serializable {
 	public Document() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

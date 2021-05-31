@@ -17,13 +17,13 @@ public class JobLocation implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	@Column(name="full_address")
 	private String fullAddress;
 
 	@Column(name="town_id")
-	private Integer townId;
+	private int townId;
 
 	//bi-directional many-to-one association to Country
 	@ManyToOne
@@ -36,11 +36,11 @@ public class JobLocation implements Serializable {
 	public JobLocation() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -52,11 +52,11 @@ public class JobLocation implements Serializable {
 		this.fullAddress = fullAddress;
 	}
 
-	public Integer getTownId() {
+	public int getTownId() {
 		return this.townId;
 	}
 
-	public void setTownId(Integer townId) {
+	public void setTownId(int townId) {
 		this.townId = townId;
 	}
 

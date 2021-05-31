@@ -17,13 +17,13 @@ public class Client implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	@Column(name="accounting_number")
 	private String accountingNumber;
 
 	@Column(name="user_id")
-	private Integer userId;
+	private int userId;
 
 	//bi-directional many-to-one association to Candidate
 	@OneToMany(mappedBy="client")
@@ -40,11 +40,11 @@ public class Client implements Serializable {
 	public Client() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -56,11 +56,11 @@ public class Client implements Serializable {
 		this.accountingNumber = accountingNumber;
 	}
 
-	public Integer getUserId() {
+	public int getUserId() {
 		return this.userId;
 	}
 
-	public void setUserId(Integer userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 

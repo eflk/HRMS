@@ -6,4 +6,7 @@ import ef.hrms.entities.concrete.Person;
 
 public interface PersonDao extends JpaRepository<Person, Integer> {
 
+	Person getByEmailIgnoreCase(String email);
+
+	Person getByNationalId(String nationalId);
 }

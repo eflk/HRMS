@@ -1,100 +1,65 @@
 package ef.hrms.entities.concrete;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * The persistent class for the persons database table.
  * 
  */
+@Data
 @Entity
-@Table(name="persons")
-@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
+@Table(name = "persons")
+@NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnore
+	private int id;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="birth_date")
-	private Date birthDate;
+	@Column(name = "birth_date")
+	@NotNull
+	@NotBlank
+	@Past
+	private LocalDate birthDate;
 
 	private String email;
 
-	@Column(name="first_name")
+	@Column(name = "first_name")
+	@NotNull
+	@NotBlank
 	private String firstName;
 
-	@Column(name="last_name")
+	@Column(name = "last_name")
+	@NotNull
+	@NotBlank
 	private String lastName;
 
-	@Column(name="national_id")
+	@Column(name = "national_id")
+	@NotNull
+	@NotBlank
 	private String nationalId;
 
-	//bi-directional one-to-one association to Candidate
-	@OneToOne(mappedBy="person")
-	private Candidate candidate;
-
-	public Person() {
-	}
-
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Date getBirthDate() {
-		return this.birthDate;
-	}
-
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getFirstName() {
-		return this.firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return this.lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getNationalId() {
-		return this.nationalId;
-	}
-
-	public void setNationalId(String nationalId) {
-		this.nationalId = nationalId;
-	}
-
-	public Candidate getCandidate() {
-		return this.candidate;
-	}
-
-	public void setCandidate(Candidate candidate) {
-		this.candidate = candidate;
-	}
+	// bi-directional one-to-one association to Candidate
+	@OneToMany(mappedBy = "person")
+	@JsonIgnore
+	private List<Candidate> candidates;
 
 }

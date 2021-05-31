@@ -17,7 +17,7 @@ public class Firm implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	@Column(name="fax_number")
 	private String faxNumber;
@@ -46,11 +46,11 @@ public class Firm implements Serializable {
 	public Firm() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

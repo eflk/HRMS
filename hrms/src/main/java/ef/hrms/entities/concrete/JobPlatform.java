@@ -17,7 +17,7 @@ public class JobPlatform implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	private String code;
 
@@ -32,11 +32,11 @@ public class JobPlatform implements Serializable {
 	public JobPlatform() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -16,7 +16,7 @@ public class RolePermission implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	//bi-directional many-to-one association to Permission
 	@ManyToOne
@@ -29,11 +29,11 @@ public class RolePermission implements Serializable {
 	public RolePermission() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

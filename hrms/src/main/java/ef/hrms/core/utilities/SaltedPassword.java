@@ -1,4 +1,4 @@
-package ef.hrms.core.base;
+package ef.hrms.core.utilities;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -16,8 +16,8 @@ public final class SaltedPassword {
 	private byte[] passwordHashed;
 	private byte[] passwordSalt;
 	private int saltSize = 6;
-	private final Encoder encoder = Base64.getEncoder().withoutPadding();
-	private final Decoder decoder = Base64.getDecoder();
+	private static final Encoder encoder = Base64.getEncoder().withoutPadding();
+	private static final Decoder decoder = Base64.getDecoder();
 
 	public SaltedPassword() {
 		this.password = "";
@@ -51,7 +51,7 @@ public final class SaltedPassword {
 		return encoder.encodeToString(passwordSalt);
 	}
 
-	public boolean checkPassword(final String clearTypePassword, final String hashedPassword, final String salt)
+	public static boolean checkPassword(final String clearTypePassword, final String hashedPassword, final String salt)
 			throws Exception {
 		try {
 			byte[] bSalt = decoder.decode(salt);

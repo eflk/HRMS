@@ -1,6 +1,6 @@
-package ef.hrms.core.results.concretes;
+package ef.hrms.core.utilities.results;
 
-public class SuccessDataResult<T> extends DataResultBase<T> {
+public class SuccessDataResult<T> extends DataResult<T> {
 
 	public SuccessDataResult() {
 		super(true);
@@ -8,6 +8,10 @@ public class SuccessDataResult<T> extends DataResultBase<T> {
 
 	public SuccessDataResult(T data) {
 		super(true, data);
+	}
+	
+	public SuccessDataResult(String message) {
+		super(true, message);
 	}
 
 	public SuccessDataResult(T data, String message) {
